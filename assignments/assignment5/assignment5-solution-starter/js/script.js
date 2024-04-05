@@ -13,7 +13,7 @@ $(function () {
   var allCategoriesUrl = "https://coursera-jhu-default-rtdb.firebaseio.com/categories.json";
   var categoriesTitleHtml = "snippets/categories-title-snippet.html";
   var categoryHtml = "snippets/category-snippet.html";
-  var menuItemsUrl = "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/{category_short_name}.json";
+  var menuItemsUrl = "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
   var menuItemsTitleHtml = "snippets/menu-items-title.html";
   var menuItemHtml = "snippets/menu-item.html";
 
@@ -82,8 +82,11 @@ $(function () {
 
   dc.loadMenuItems = function (categoryShort) {
     showLoading("#main-content");
+    var randomIndex = Math.floor(Math.random() * categoryShort.length);
+    var randomCategoryShortName = categoryShort[randomIndex].short_name;
+    var completeUrl = menuItemsUrl + randomCategoryShortName + ".json";
     $ajaxUtils.sendGetRequest(
-      menuItemsUrl + categoryShort + ".json",
+      completeUrl,
       buildAndShowMenuItemsHTML
     );
   };
