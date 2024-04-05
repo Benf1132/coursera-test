@@ -13,7 +13,7 @@ $(function () {
   var allCategoriesUrl = "https://coursera-jhu-default-rtdb.firebaseio.com/categories.json";
   var categoriesTitleHtml = "snippets/categories-title-snippet.html";
   var categoryHtml = "snippets/category-snippet.html";
-  var menuItemsUrl = "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
+  var menuItemsUrl = "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/{category_short_name}.json";
   var menuItemsTitleHtml = "snippets/menu-items-title.html";
   var menuItemHtml = "snippets/menu-item.html";
 
